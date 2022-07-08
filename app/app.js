@@ -1,8 +1,10 @@
 let root = document.getElementById("root");
 
+//Html text and classes
 root.innerHTML =
-  '<div id="num">0</div> <button id = "plus" onclick = "plus(); changeRandColor();">+</button> <button id = "minus" onclick = "minus(); changeRandColor();">-</button>';
+  '<div id="num">0</div> <button id = "plus" onclick = "plus(); changeStyle();">+</button> <button id = "minus" onclick = "minus(); changeStyle();">-</button>';
 
+// integrate html to js and style it
 let title = document.getElementsByTagName("h1")[0];
 let num = document.getElementById("num");
 let btnPlus = document.getElementById("plus");
@@ -24,7 +26,11 @@ btnMinus.style.border = "solid 3px black";
 btnMinus.style.borderRadius = "10px";
 btnMinus.style.fontWeight = "700";
 btnMinus.style.fontSize = "20px";
+
+// user instructions
 let alertRoot = alert('press the "+" & "-" buttons');
+
+// numbers function for plus button
 let funcNum = 0;
 function plus() {
   funcNum++;
@@ -32,10 +38,9 @@ function plus() {
     funcNum = 0;
   }
   num.innerHTML = funcNum;
-  if (funcNum === 0) {
-    funcNum.style.fontFamily = "cursive";
-  }
 }
+
+// numbers function for minus button
 function minus() {
   funcNum--;
   if (funcNum <= -1) {
@@ -43,11 +48,15 @@ function minus() {
   }
   num.innerHTML = funcNum;
 }
+
+// random hex colors function
 function randColor() {
   let hex = "#" + Math.floor(Math.random() * 16777215).toString(16);
 
   return hex;
 }
+
+// random rgba colors function
 function randBgColor() {
   let r = Math.floor(Math.random() * 256);
   let g = Math.floor(Math.random() * 256);
@@ -56,6 +65,8 @@ function randBgColor() {
 
   return "rgba(" + r + "," + g + "," + b + "," + a + ")";
 }
+
+// font types array
 let fontType = [
   "Arial",
   "cursive",
@@ -70,7 +81,9 @@ let fontType = [
   "Garamond",
   "Brush Script MT",
 ];
-function changeRandColor() {
+
+// change page style function
+function changeStyle() {
   let numFont = Math.floor(Math.random() * fontType.length);
   let bgColor = randBgColor();
   let numColor = randColor();
@@ -82,4 +95,5 @@ function changeRandColor() {
   btnMinus.style.backgroundColor = randBgColor();
   btnPlus.style.color = bgColor;
   btnMinus.style.color = numColor;
+  title.style.color = randColor();
 }
