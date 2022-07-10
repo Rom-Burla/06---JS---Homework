@@ -44,7 +44,7 @@ function plus() {
 function minus() {
   funcNum--;
   if (funcNum <= -1) {
-    funcNum = 0;
+    funcNum = 5;
   }
   num.innerHTML = funcNum;
 }
